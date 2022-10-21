@@ -8,6 +8,8 @@ import Inventory from './components/Inventory/Inventory';
 import { productsAndCartLoader } from './loaders/productsAndCartLoader';
 import Signup from './components/Signup/Signup';
 import Login from './components/Login/Login';
+import ProceedShipping from './components/ProceedShipping/ProceedShipping';
+import PrivateRoute from './routes/PrivateRoute';
 
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
         },
         {
           path: 'inventory',
-          element: <Inventory></Inventory>
+          element: <PrivateRoute><Inventory></Inventory></PrivateRoute>
         },
         {
           path:'about',
@@ -41,6 +43,10 @@ function App() {
         {
           path: 'login',
           element: <Login></Login>
+        },
+        {
+          path: 'shipping',
+          element: <PrivateRoute><ProceedShipping></ProceedShipping></PrivateRoute>
         }
       ]
     },
